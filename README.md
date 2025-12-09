@@ -4,9 +4,9 @@ FastAPI 프로젝트용 공통 모듈 라이브러리
 
 ## 포함 모듈
 
-- **common**: 상수, 로거, 유틸리티, 임베딩
-- **llm**: OpenAI LLM 클라이언트
+- **ai**: AI 클라이언트
 - **restful**: 요청/응답 모델
+- **shared**: 상수, 로거, 유틸리티, 임베딩
 
 ## 설치
 
@@ -23,9 +23,9 @@ pip install c:\Src\Git\common_fastapi
 ## 사용 예시
 
 ```python
-from common_fastapi.common.constant import Const
-from common_fastapi.common.logger import logger
-from common_fastapi.llm.openai import LLMClient
+from common_fastapi.shared.constant import Const
+from common_fastapi.shared.logger import logger
+from common_fastapi.ai.llm_openai import LLMClient
 from common_fastapi.restful.resp import rsObj, rsError
 
 # 상수 사용

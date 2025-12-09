@@ -7,19 +7,8 @@
 Successfully installed common-fastapi-0.1.0
 ```
 
-## 2단계: gigchat_fastapi에서 import 변경
+## 2단계 import
 
-### 변경 전:
-```python
-from common.constant import Const
-from common.logger import logger
-from common.util import format_datetime
-from llm.openai import LLMClient
-from restful.resp import rsObj, rsError
-from restful.rqst import ChatRequest
-```
-
-### 변경 후:
 ```python
 from common_fastapi.shared.constant import Const
 from common_fastapi.shared.logger import logger
@@ -29,17 +18,7 @@ from common_fastapi.restful.resp import rsObj, rsError
 from common_fastapi.restful.rqst import ChatRequest
 ```
 
-## 3단계: 기존 폴더 삭제 (선택)
-
-import를 모두 변경한 후 테스트가 완료되면:
-```cmd
-cd c:\Src\Git\gigchat\gigchat_fastapi
-rmdir /s /q common
-rmdir /s /q llm
-rmdir /s /q restful
-```
-
-## 4단계: 다른 프로젝트에서도 사용
+## 3단계: 다른 프로젝트에서도 사용
 
 다른 FastAPI 프로젝트에서도 동일하게 설치:
 ```cmd
@@ -60,6 +39,6 @@ pip install -e c:\Src\Git\common_fastapi
 
 ```python
 # 터미널에서 테스트
-python -c "from common_fastapi.common.constant import Const; print(Const.CODE_OK)"
+python -c "from common_fastapi.shared.constant import Const; print(Const.CODE_OK)"
 # 출력: 0
 ```
