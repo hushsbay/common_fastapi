@@ -39,4 +39,4 @@ if not logger.hasHandlers(): # Reset handlers to avoid duplicate logs
 
     logger.addHandler(console_handler)
 
-    logger.info("Logging started.")
+    # logger.info("Logging started.")

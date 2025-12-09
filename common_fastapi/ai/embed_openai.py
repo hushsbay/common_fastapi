@@ -55,7 +55,7 @@ def prepare_embedding_param(embedding: Any) -> Tuple[bool, Any]: # DB SQL문에 
         literal = literal.replace("'", "''")
         return True, literal
     except Exception:
-        raise ValueError("Cannot prepare embedding parameter: unsupported format")
+        raise ValueError("Cannot prepare openai embedding parameter: unsupported format")
     
 def get_embedding(text: str) -> List[float]: # Generate embedding for given text using OpenAI client
     if _client_embed is None:
