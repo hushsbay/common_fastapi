@@ -7,4 +7,4 @@ class ChatRequest(BaseModel): # 챗봇에서 요청하는 검색 조건 채우�
     condition: Optional[Dict[str, Any]] = {}
     search: bool = False
     embeddingModel: str = 'jhgan'
-    similarityThreshold: float = 0.4
+    similarityThreshold: float = 0.3
