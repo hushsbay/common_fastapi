@@ -1,0 +1,21 @@
+# 아래는 common_fastapi 프로젝트를 참조하는 모든 프로젝트에 설치되어야 할 모듈임
+# ModuleNotFoundError: No module named 'sentence_transformers'로 나오는데 
+# sentence_transformers 모듈은 common_fastapi 프로젝트에 설치되어 있는데 그걸 참조할 수 없는것인가?
+# 네, Python의 가상환경(venv)은 프로젝트별로 독립적입니다.
+# 즉, sentence-transformers를 common_fastapi의 .venv에만 설치했다면, 
+# gigchat_fastapi의 가상환경에서는 해당 모듈을 인식하지 못합니다.
+# gigchat_fastapi에서 common_fastapi를 import해서 쓸 때,
+# common_fastapi의 소스는 gigchat_fastapi의 Python 환경에서 실행되므로,
+# gigchat_fastapi의 가상환경에도 sentence-transformers를 설치해야 합니다.
+# 즉, gigchat_fastapi의 가상환경(venv)에서 pip install sentence-transformers를 실행해야 합니다.
+# 또는, 두 프로젝트가 같은 venv를 공유하도록 설정해야 하지만, 일반적으로는 각 프로젝트별로 venv를 따로 두는 것이 표준입니다.
+# 따라서 gigchat_fastapi의 requirements.txt에도 sentence-transformers를 추가하고 설치하세요. 
+# 그래서, common_fastapi에서는 .venv도 필요없으며 pip install도 미사용
+fastapi
+pydantic
+python-dotenv
+asyncpg
+pgvector
+sentence-transformers
+openai
+numpy
