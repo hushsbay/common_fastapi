@@ -14,7 +14,7 @@ async def init_db_pool(database_url: str = None, min_size: int = 1, max_size: in
     global _pool    
     db_url = database_url or DB_URL
     if not db_url:
-        raise ValueError("❌ DATABASE_URL이 설정되지 않았습니다")
+        raise ValueError("❌ DB_URL이 설정되지 않았습니다")
     _pool = await asyncpg.create_pool(db_url, min_size=min_size, max_size=max_size, command_timeout=60, init=register_vector) # pgvector 등록
     async with _pool.acquire() as conn: # 첫 연결 테스트
         await register_vector(conn)
