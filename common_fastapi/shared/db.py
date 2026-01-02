@@ -12,7 +12,7 @@ _pool = None # 전역 DB 풀
 # 안전을 위해 풀 생성 직후 단일 커넥션에 대해 호출하던 await register_vector(conn)도 그대로 남겨둠 (무해하며 충돌 없음)
 async def init_db_pool(database_url: str = None, min_size: int = 1, max_size: int = 10): # DB 연결 풀 초기화
     global _pool    
-    db_url = database_url or 
+    db_url = database_url or DB_URL
     if not db_url:
         raise ValueError("❌ DATABASE_URL이 설정되지 않았습니다")
     _pool = await asyncpg.create_pool(db_url, min_size=min_size, max_size=max_size, command_timeout=60, init=register_vector) # pgvector 등록
