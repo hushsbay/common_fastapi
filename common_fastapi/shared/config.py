@@ -10,7 +10,7 @@ load_dotenv(_env_path)
 
 # 공통 환경 변수 (common_fastapi/.env)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-NEON_DATABASE_URL = os.getenv("NEON_DATABASE_URL")
+DB_URL = os.getenv("DB_URL")
 
 # 프로젝트별 환경 변수 (각 프로젝트의 .env에서 읽음)
 # LOG_PATH, DEFAULT_TIMEZONE 등은 각 프로젝트에서 load_dotenv() 후 os.getenv()로 사용
@@ -21,8 +21,8 @@ def validate_env(): # 검증 (공통 환경 변수만) : 필수 공통 환경 �
     missing = []
     if not OPENAI_API_KEY:
         missing.append("OPENAI_API_KEY")
-    if not NEON_DATABASE_URL:
-        missing.append("NEON_DATABASE_URL")
+    if not DB_URL:
+        missing.append("DB_URL")
     if missing:
         raise ValueError(f"❌ 필수 환경 변수가 없습니다: {', '.join(missing)}")
-    # print("✅ 공통 환경 변수 로드 완료 (OPENAI_API_KEY, NEON_DATABASE_URL)")
+    # print("✅ 공통 환경 변수 로드 완료 (OPENAI_API_KEY, DB_URL)")

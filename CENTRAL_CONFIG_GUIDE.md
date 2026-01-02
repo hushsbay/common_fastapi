@@ -25,7 +25,7 @@ gigchat_fastapi/
 ```bash
 # 모든 프로젝트에서 공유하는 설정
 OPENAI_API_KEY=sk-xxxxxxxxxxxxx
-NEON_DATABASE_URL=postgresql://user:password@host/database
+DB_URL=postgresql://user:password@host/database
 ```
 
 ### gigchat_fastapi/.env (프로젝트별 설정)
